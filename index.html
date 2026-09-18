@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="FYDP Evaluation System for the Department of Electrical Engineering, UET Lahore.">
   <title>FYDP Evaluation System | UET Lahore</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b2f55'/%3E%3Cpath d='M16 17h34v8H25v8h21v8H25v14h-9z' fill='white'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260918-2">
 </head>
 <body>
   <header class="site-header">
@@ -80,6 +83,7 @@
             <p class="signed-in-label">Signed in successfully</p>
             <h3 id="signed-in-name"></h3>
             <p id="signed-in-role"></p>
+            <p class="build-label">System version 1.1 · Rubric import enabled</p>
           </div>
           <button class="secondary-button" id="sign-out-button" type="button">Sign out</button>
         </div>
@@ -165,7 +169,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script src="supabase-config.js"></script>
-  <script src="app.js"></script>
+  <script src="supabase-config.js?v=20260918-2"></script>
+  <script src="app.js?v=20260918-2"></script>
 </body>
 </html>
