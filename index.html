@@ -42,6 +42,11 @@
         <p>Your role will be identified from your approved account.</p>
       </div>
 
+      <div class="login-methods" role="group" aria-label="Sign-in method">
+        <button class="method-button active" type="button" data-mode="otp" aria-pressed="true">Email code</button>
+        <button class="method-button" type="button" data-mode="password" aria-pressed="false">Evaluator password</button>
+      </div>
+
       <form id="login-form" novalidate>
         <div class="field">
           <label for="email">Email address</label>
@@ -49,18 +54,33 @@
           <p class="field-error" id="email-error"></p>
         </div>
 
-        <div class="field">
+        <div class="field" id="password-field" hidden>
           <label for="password">Password</label>
           <div class="password-row">
-            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="6">
             <button class="show-password" id="show-password" type="button" aria-label="Show password">Show</button>
           </div>
           <p class="field-error" id="password-error"></p>
         </div>
 
-        <button class="primary-button" type="submit">Sign in</button>
+        <div class="field" id="otp-field" hidden>
+          <label for="otp-code">Verification code</label>
+          <input id="otp-code" name="otp-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter the code from your email" maxlength="8">
+          <p class="field-error" id="otp-error"></p>
+        </div>
+
+        <button class="primary-button" id="submit-button" type="submit">Send verification code</button>
+        <button class="text-button" id="change-email" type="button" hidden>Use another email address</button>
         <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
       </form>
+
+      <div class="signed-in-panel" id="signed-in-panel" hidden>
+        <p class="signed-in-label">Signed in successfully</p>
+        <h3 id="signed-in-name"></h3>
+        <p id="signed-in-role"></p>
+        <p>Your approved FYDP account is active.</p>
+        <button class="secondary-button" id="sign-out-button" type="button">Sign out</button>
+      </div>
 
       <div class="access-note">
         <strong>Access:</strong> Administrator and approved evaluators only.
@@ -72,6 +92,8 @@
     <p>FYDP Evaluation System · Electrical Engineering Department · UET Lahore</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
