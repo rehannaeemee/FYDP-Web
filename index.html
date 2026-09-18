@@ -19,7 +19,7 @@
     </div>
   </header>
 
-  <main class="page-shell">
+  <main class="page-shell" id="page-shell">
     <section class="intro" aria-labelledby="page-title">
       <p class="eyebrow">Electrical Engineering Department</p>
       <h1 id="page-title">Synopsis Presentation Evaluation</h1>
@@ -75,11 +75,82 @@
       </form>
 
       <div class="signed-in-panel" id="signed-in-panel" hidden>
-        <p class="signed-in-label">Signed in successfully</p>
-        <h3 id="signed-in-name"></h3>
-        <p id="signed-in-role"></p>
-        <p>Your approved FYDP account is active.</p>
-        <button class="secondary-button" id="sign-out-button" type="button">Sign out</button>
+        <div class="account-summary">
+          <div>
+            <p class="signed-in-label">Signed in successfully</p>
+            <h3 id="signed-in-name"></h3>
+            <p id="signed-in-role"></p>
+          </div>
+          <button class="secondary-button" id="sign-out-button" type="button">Sign out</button>
+        </div>
+
+        <section class="admin-dashboard" id="admin-dashboard" aria-labelledby="admin-dashboard-title" hidden>
+          <div class="dashboard-heading">
+            <div>
+              <p class="step-label">Administrator workspace</p>
+              <h2 id="admin-dashboard-title">Import an assessment rubric</h2>
+              <p>Upload the approved Excel evaluation sheet, review the extracted criteria, and save a new rubric version.</p>
+            </div>
+            <div class="session-badge">
+              <span>Active session</span>
+              <strong id="active-session-name">Loading…</strong>
+            </div>
+          </div>
+
+          <div class="import-grid">
+            <div class="field">
+              <label for="assessment-select">Assessment</label>
+              <select id="assessment-select" disabled>
+                <option value="">Loading assessments…</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="rubric-file">Approved Excel evaluation sheet</label>
+              <input id="rubric-file" type="file" accept=".xlsx,.xls" disabled>
+              <p class="field-help">The first supported layout is the revised UET Synopsis Presentation sheet.</p>
+            </div>
+          </div>
+
+          <div class="import-actions">
+            <button class="secondary-button" id="preview-rubric-button" type="button" disabled>Preview Excel rubric</button>
+            <button class="primary-button compact-button" id="import-rubric-button" type="button" disabled>Import rubric</button>
+          </div>
+
+          <p class="dashboard-message" id="rubric-message" role="status" aria-live="polite"></p>
+
+          <div class="rubric-preview" id="rubric-preview" hidden>
+            <div class="preview-summary">
+              <div>
+                <span>File</span>
+                <strong id="preview-file-name"></strong>
+              </div>
+              <div>
+                <span>Criteria</span>
+                <strong id="preview-criteria-count"></strong>
+              </div>
+              <div>
+                <span>Total marks</span>
+                <strong id="preview-total-marks"></strong>
+              </div>
+            </div>
+
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Criterion</th>
+                    <th>CLO / PLO</th>
+                    <th>Maximum</th>
+                    <th>Scoring</th>
+                  </tr>
+                </thead>
+                <tbody id="rubric-preview-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </div>
 
       <div class="access-note">
@@ -93,6 +164,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="supabase-config.js"></script>
   <script src="app.js"></script>
 </body>
