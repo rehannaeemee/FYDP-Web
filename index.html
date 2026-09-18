@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FYDP Evaluation System for the Department of Electrical Engineering, UET Lahore.">
+  <title>FYDP Evaluation System | UET Lahore</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b2f55'/%3E%3Cpath d='M16 17h34v8H25v8h21v8H25v14h-9z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">FY</span>
+      <div>
+        <p class="brand-title">FYDP Evaluation System</p>
+        <p class="brand-subtitle">Department of Electrical Engineering · UET Lahore</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Electrical Engineering Department</p>
+      <h1 id="page-title">Synopsis Presentation Evaluation</h1>
+      <p class="intro-copy">
+        Authorized evaluators and administrators can sign in to manage FYDP assessment records.
+      </p>
+
+      <div class="status-strip" aria-label="System status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Authorized access</span>
+        <span class="status-separator" aria-hidden="true"></span>
+        <span>Assessment records remain private</span>
+      </div>
+    </section>
+
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="card-heading">
+        <p class="step-label">Secure access</p>
+        <h2 id="login-title">Sign in</h2>
+        <p>Your role will be identified from your approved account.</p>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="name@uet.edu.pk" required>
+          <p class="field-error" id="email-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-row">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="6">
+            <button class="show-password" id="show-password" type="button" aria-label="Show password">Show</button>
+          </div>
+          <p class="field-error" id="password-error"></p>
+        </div>
+
+        <button class="primary-button" type="submit">Sign in</button>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="access-note">
+        <strong>Access:</strong> Administrator and approved evaluators only.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>FYDP Evaluation System · Electrical Engineering Department · UET Lahore</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
